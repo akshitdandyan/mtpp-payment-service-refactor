@@ -6,7 +6,9 @@ public class Config {
     }
 
     public static void setProvider(String provider) {
-        // BAD: No validation, can be set to any string
+        if (provider == null || provider.trim().isEmpty()) {
+            throw new IllegalArgumentException("Provider cannot be null or empty");
+        }
         currentProvider = provider;
     }
 }

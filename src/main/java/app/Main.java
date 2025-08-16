@@ -4,7 +4,8 @@ public class Main {
         System.out.println();
 
         Order order = new Order(19.99, "EUR");
-        PaymentService paymentService = new PaymentService();
+        PaymentGatewayFactory factory = new PaymentGatewayFactory();
+        PaymentService paymentService = new PaymentService(factory);
 
         // Test with PayPal
         System.out.println("Testing PayPal payment:");
